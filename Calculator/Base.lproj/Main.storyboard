@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -29,17 +29,28 @@
                                         <rect key="frame" x="0.0" y="0.0" width="398" height="135.33333333333334"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="aeq-AB-4jN">
-                                                <rect key="frame" x="23" y="8" width="352" height="119.33333333333334"/>
+                                                <rect key="frame" x="23" y="49" width="352" height="78"/>
                                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="50"/>
                                                 <color key="textColor" red="0.97804109382244775" green="0.97670762523437715" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aCZ-Rm-dBF">
+                                                <rect key="frame" x="23" y="-1" width="352" height="39"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="25"/>
+                                                <color key="textColor" red="0.97804109380000004" green="0.97670762519999998" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="aeq-AB-4jN" secondAttribute="trailing" constant="23" id="HGe-7X-OcX"/>
-                                            <constraint firstItem="aeq-AB-4jN" firstAttribute="top" secondItem="nej-Y8-yfM" secondAttribute="top" constant="8" id="Lv1-dg-war"/>
-                                            <constraint firstItem="aeq-AB-4jN" firstAttribute="leading" secondItem="nej-Y8-yfM" secondAttribute="leading" constant="23" id="SEy-Gf-N9C"/>
-                                            <constraint firstAttribute="bottom" secondItem="aeq-AB-4jN" secondAttribute="bottom" constant="8" id="q3g-fj-5f7"/>
+                                            <constraint firstItem="aeq-AB-4jN" firstAttribute="top" secondItem="aCZ-Rm-dBF" secondAttribute="bottom" constant="11" id="1tR-Ow-66M"/>
+                                            <constraint firstItem="aeq-AB-4jN" firstAttribute="leading" secondItem="nej-Y8-yfM" secondAttribute="leading" constant="23" id="2FZ-Tr-2Uv"/>
+                                            <constraint firstAttribute="trailing" secondItem="aeq-AB-4jN" secondAttribute="trailing" constant="23" id="5b4-Gp-enT"/>
+                                            <constraint firstItem="aCZ-Rm-dBF" firstAttribute="top" secondItem="nej-Y8-yfM" secondAttribute="top" constant="-1" id="BIg-No-3rP"/>
+                                            <constraint firstItem="aeq-AB-4jN" firstAttribute="height" secondItem="aCZ-Rm-dBF" secondAttribute="height" multiplier="2" id="eFf-My-PAp"/>
+                                            <constraint firstAttribute="trailing" secondItem="aCZ-Rm-dBF" secondAttribute="trailing" constant="23" id="f34-Gj-VZa"/>
+                                            <constraint firstItem="aCZ-Rm-dBF" firstAttribute="leading" secondItem="nej-Y8-yfM" secondAttribute="leading" constant="23" id="jqK-2w-JNq"/>
+                                            <constraint firstItem="aeq-AB-4jN" firstAttribute="width" secondItem="aCZ-Rm-dBF" secondAttribute="width" id="qEu-DM-WKd"/>
+                                            <constraint firstAttribute="bottom" secondItem="aeq-AB-4jN" secondAttribute="bottom" constant="8.3333333333333428" id="vwh-g3-eul"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="706-iv-PkK">
@@ -419,6 +430,7 @@
                     </view>
                     <connections>
                         <outlet property="display" destination="aeq-AB-4jN" id="cQU-6a-1cL"/>
+                        <outlet property="displaySequence" destination="aCZ-Rm-dBF" id="UaX-rd-ynF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

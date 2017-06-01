@@ -19,6 +19,7 @@ struct CalculatorBrain{
         case unaryOperation((Double) -> Double)
         case binaryOperation((Double,Double) -> Double)
         case equals
+        case clear
     }
     
     private var operationMap: Dictionary<String,Operation> =
@@ -34,7 +35,8 @@ struct CalculatorBrain{
      "-" : Operation.binaryOperation({$0 - $1}),
      "×" : Operation.binaryOperation({$0 * $1}),
      "÷" : Operation.binaryOperation({$0 / $1}),
-     "=" : Operation.equals
+     "=" : Operation.equals,
+     "AC" : Operation.clear
     ]
     
     private struct PendingBinaryOperation {
@@ -64,6 +66,8 @@ struct CalculatorBrain{
                 }
             case .equals:
                 performPendingBinaryOperation()
+            case .clear:
+                accumulator = 0
             }
         }
     }
