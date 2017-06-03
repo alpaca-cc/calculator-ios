@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var display: UILabel!
+    @IBOutlet weak var sequence: UILabel!
     
     var userInMiddleOfTyping = false
     var dotDisable = false
@@ -18,17 +19,22 @@ class ViewController: UIViewController {
     // function to input number
     @IBAction func touchDigit(_ sender: UIButton) {
         let digit = sender.currentTitle!
-        if digit != "." || !dotDisable {
-            if digit == "." {
-                dotDisable = true
-            }
-            if userInMiddleOfTyping {
-                let currentTextDisplay = display.text!
-                display.text = currentTextDisplay + digit
-            }else {
-                display.text = digit
-                userInMiddleOfTyping = true
-            }
+        if userInMiddleOfTyping {
+            let currentTextDisplay = display.text!
+            display.text = currentTextDisplay + digit
+        }else {
+            display.text = digit
+            userInMiddleOfTyping = true
+        }
+    }
+    
+    @IBAction func touchDot(_ sender: UIButton) {
+        if !dotDisable {
+            let dot = sender.currentTitle!
+            dotDisable = true
+            let currentTextDisplay = display.text!
+            display.text = currentTextDisplay + dot
+            userInMiddleOfTyping = true
         }
     }
     
@@ -37,7 +43,7 @@ class ViewController: UIViewController {
             return Double(display.text!)!
         }
         set{
-            display.text = String(newValue)
+            display.text = String(format: "%g", newValue)
         }
     }
     
@@ -54,6 +60,19 @@ class ViewController: UIViewController {
         }
         if let result = brain.result {
             displayValue = result
+        }else if brain.allClear{
+            displayValue = 0
+            sequence.text = ""
+            brain.allClear = false
+        }
+        if brain.description != "" {
+            if brain.resultIsPending {
+                sequence.text = brain.description + " ..."
+            }else{
+                sequence.text = brain.description + " ="
+            }
+        }else{
+            sequence.text = ""
         }
     }
     
